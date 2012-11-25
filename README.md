@@ -12,7 +12,9 @@ ANSI Common Lisp (1995), and Hackers & Painters (2004).
 
 -- 
 
-This ebook effort is been maintained as an open source project and the generated ebooks released with no associated DRM. PG's essays are used under [Fair Use](http://www.copyright.gov/fls/fl102.html,"U.S. Copyright Office - Fair Use").
+This ebook effort is been maintained as an opensource project.
+The generated ebooks are released with no associated DRM. 
+PG's essays are used under [Fair Use](http://www.copyright.gov/fls/fl102.html,"U.S. Copyright Office - Fair Use").
 
 -- 
 You can find all original essays [here](http://paulgraham.com/articles.html,"Paul Graham's Essays").
