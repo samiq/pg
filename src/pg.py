@@ -30,7 +30,7 @@ d = feedparser.parse(RSS_FEED)
 print d.feed.title
 print d.feed.description
 
-for item in d.entries:
+for idx, item in enumerate(d.entries):
 	print 'Processing...' + item.title + ' : ' + item.link
 	
 	try :		
@@ -57,8 +57,8 @@ for item in d.entries:
 			
 			soup = BeautifulSoup(s)
 			month = soup.body.p
-			month.name = 'h2'
-			file_name = item.title+'.html'
+			month.name = 'h2'			
+			file_name = str(idx)+' - '+item.title+'.html'
 			
 			f = codecs.open(file_name, encoding='utf-8', mode='w+')
 			f.write(soup.prettify())
