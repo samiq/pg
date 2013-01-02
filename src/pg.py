@@ -29,7 +29,7 @@ H1 = '<h1>{0}</h1>'
 d = feedparser.parse(RSS_FEED)
 print d.feed.title
 print d.feed.description
-	
+
 for item in d.entries:
 	print 'Processing...' + item.title + ' : ' + item.link
 	
@@ -42,8 +42,11 @@ for item in d.entries:
 		
 		if c is None:
 			c = soup.find('td', width="375")
-		
-		if c is not None:	
+
+		cc = soup.findAll(cellspacing="0",width="100%")
+		[comment.extract() for comment in cc]
+
+		if c is not None:
 			s = c.prettify()
 			s = re.sub('<br>\s*\s<br>','</p><p>',s)
 			s = re.sub('<font(\s*|.*|\s)>|</font>|<br>|</br>|<br/>|<td(\s*|.*|\s)>|</td>|</img>','',s)
