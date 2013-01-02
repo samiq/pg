@@ -12,7 +12,7 @@
 __author__ = "Gilbert Corrales (gcorrales@gmail.com)"
 __copyright__ = "Copyright (C) 2012 Gilbert Corrales"
 __license__ = "LGPL 3.0"
-__version__ = "0.1"
+__version__ = "0.3"
 
 import codecs
 import re
@@ -22,7 +22,7 @@ import feedparser
 
 # Constants Definition
 RSS_FEED = 'http://www.aaronsw.com/2002/feeds/pgessays.rss'
-TEMPLATE = u'<html lang="en"><head><title>{0}</title></head><body>{1}</body></html>'
+TEMPLATE = u'<html lang="en"><head><title>{0}</title></head><body>{1}<p>This essay was originally published at <a href="{2}?utm_source=pgebook">paulgraham.com</a><p></body></html>'
 H1 = '<h1>{0}</h1>'
 
 # Load and parses RSS feed
@@ -53,7 +53,7 @@ for idx, item in enumerate(d.entries):
 			s = re.sub('<img(\s*|.*|\s)>\s*</p>',str.format(H1,item.title),s)
 			s = re.sub('<p>\s*\s<b>','<h3>',s)
 			s = re.sub('</b>\s*\s</p>','</h3>',s)
-			s = TEMPLATE.format(item.title,s)
+			s = TEMPLATE.format(item.title,s,item.link)
 			
 			soup = BeautifulSoup(s)
 			month = soup.body.p
